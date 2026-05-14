@@ -1,6 +1,5 @@
 import { motion } from "framer-motion";
 import "./App.css";
-import { image } from "framer-motion/client";
 import SpotifyEmbed from "./components/Spotify";
 
 type TimelineItem = {
