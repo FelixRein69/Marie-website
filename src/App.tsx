@@ -1,122 +1,175 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import heroImg from './assets/hero.png'
-import './App.css'
+import { motion } from "framer-motion";
+import "./App.css";
+import PixelPainter from "./components/PixelPainter";
+
+type TimelineItem = {
+  year: string;
+  title: string;
+  text: string;
+};
+
+const timeline: TimelineItem[] = [
+  {
+    year: "20. Juni 2025",
+    title: "Saufabend",
+    text: "Da hast du extrem besoffen mein Herz erobert.",
+  },
+  {
+    year: "28. Juli 2025",
+    title: "Ich hab dir geschrieben ????",
+    text: "An dem Tag hab ich mir so krass in die Hosen geschissen und dir geschrieben. Hat sich gelohnt.",
+  },
+  {
+    year: "1. August. 2025",
+    title: "Erstes date",
+    text: "Wirklich das beste erste Date was man sich vorstellen kann. 😍",
+  },
+  {
+    year: "10. August. 2025",
+    title: "Seit dem sind wir zusammen",
+    text: "Das war Finkenrech. \"Ja sind wir jetzt zusammen?\"",
+  },
+  {
+    year: "15. August. 2025",
+    title: "Erstes mal bei dir und dann der Kurzurlaub",
+    text: "Wahrscheinlich das schönste Wochenende meines Lebens🥰. Eigentlich eh die schönste Zeit meines Lebens",
+  },
+  {
+    year: "28. August. 2025",
+    title: "Wir schauen Shrek",
+    text: "und ich mach dir nen Antrag... und du sagst Ja",
+  },
+  {
+    year: "09. September. 2025",
+    title: "Wir sind echt verlobt",
+    text: "und das habe ich und werde ich niemals bereuen",
+  },
+  {
+    year: "1. Oktober. 2025",
+    title: "Wir ziehen zusammen",
+    text: "Ich wohne so gern mit dir zusammen.",
+  },
+
+];
+
+const reasons: string[] = [
+  "🩷 Dein Lachen 🩷",
+  "🩷 Deine Witze 🩷",
+  "🩷 Deine Augen 🩷",
+  "🩷 Dein Arsch 🩷",
+  "🩷 Wie du mich liebst 🩷",
+  "🩷 Einfach alles an dir 🩷",
+];
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <section id="center">
-        <div className="hero">
-          <img src={heroImg} className="base" width="170" height="179" alt="" />
-          <img src={reactLogo} className="framework" alt="React logo" />
-          <img src={viteLogo} className="vite" alt="Vite logo" />
-        </div>
-        <div>
-          <h1>Get started</h1>
-          <p>
-            Edit <code>src/App.tsx</code> and save to test <code>HMR</code>
-          </p>
-        </div>
-        <button
-          type="button"
-          className="counter"
-          onClick={() => setCount((count) => count + 1)}
+    <main className="app">
+      {/* HERO */}
+      <section className="hero">
+        <div className="hero-glow hero-glow-1" />
+        <div className="hero-glow hero-glow-2" />
+
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1 }}
+          className="hero-content"
         >
-          Count is {count}
-        </button>
+          <p className="hero-subtitle">FOR MY WIFE</p>
+
+          <h1>
+            Marie x Felix
+          </h1>
+
+          <a href="#story" className="hero-button">
+            Our Story
+          </a>
+        </motion.div>
       </section>
 
-      <div className="ticks"></div>
+      {/* STORY */}
+      <section id="story" className="section">
+        <h2 className="our-story-text" >Wie alles begann</h2>
 
-      <section id="next-steps">
-        <div id="docs">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#documentation-icon"></use>
-          </svg>
-          <h2>Documentation</h2>
-          <p>Your questions, answered</p>
-          <ul>
-            <li>
-              <a href="https://vite.dev/" target="_blank">
-                <img className="logo" src={viteLogo} alt="" />
-                Explore Vite
-              </a>
-            </li>
-            <li>
-              <a href="https://react.dev/" target="_blank">
-                <img className="button-icon" src={reactLogo} alt="" />
-                Learn more
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div id="social">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#social-icon"></use>
-          </svg>
-          <h2>Connect with us</h2>
-          <p>Join the Vite community</p>
-          <ul>
-            <li>
-              <a href="https://github.com/vitejs/vite" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#github-icon"></use>
-                </svg>
-                GitHub
-              </a>
-            </li>
-            <li>
-              <a href="https://chat.vite.dev/" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#discord-icon"></use>
-                </svg>
-                Discord
-              </a>
-            </li>
-            <li>
-              <a href="https://x.com/vite_js" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#x-icon"></use>
-                </svg>
-                X.com
-              </a>
-            </li>
-            <li>
-              <a href="https://bsky.app/profile/vite.dev" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#bluesky-icon"></use>
-                </svg>
-                Bluesky
-              </a>
-            </li>
-          </ul>
+        <div className="timeline">
+          {timeline.map((item, index) => (
+            <motion.div
+              key={index}
+              className="card"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: index * 0.1 }}
+            >
+              <p className="year">{item.year}</p>
+
+              <h3>{item.title}</h3>
+
+              <p>{item.text}</p>
+            </motion.div>
+          ))}
         </div>
       </section>
 
-      <div className="ticks"></div>
-      <section id="spacer"></section>
-    </>
-  )
+      {/* GALLERY */}
+      <section className="section">
+        <h2>Memories</h2>
+
+        <div className="gallery">
+          {[1, 2, 3].map((item) => (
+            <div key={item} className="photo-placeholder">
+              <img
+                key={item}
+                className="photo-placeholder"
+                src={`/${item}.jpeg`}
+                alt="Memory"
+              />
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* REASONS */}
+      <section className="section">
+        <h2 className="h2-warum">Warum ich dich so sehr liebe</h2>
+
+        <div className="reasons-grid">
+          {reasons.map((reason, index) => (
+            <motion.div
+              key={index}
+              className="reason-card"
+              whileHover={{ y: -5 }}
+            >
+              {reason}
+            </motion.div>
+          ))}
+        </div>
+      </section>
+
+      {/* LETTER */}
+      <section className="section">
+        <motion.div
+          className="letter"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+        >
+          <p className="letter-label">Ein brief an dich</p>
+
+          <p className="letter-text">
+            Danke Marie, dass du mich zu dem Mann gemacht hast.
+            der ich heute bin. Du bist mein ganzes Universum.
+            Ich liebe dich.
+          </p>
+        </motion.div>
+      </section>
+      <PixelPainter />
+      {/* FOOTER */}
+      <footer className="footer">
+        <h2 className="h2-warum">Wir für immer ♡</h2>
+
+        <p>Mein geliebtes Ei</p>
+      </footer>
+    </main>
+  );
 }
 
-export default App
+export default App;
