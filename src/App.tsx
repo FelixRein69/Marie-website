@@ -1,11 +1,14 @@
 import { motion } from "framer-motion";
 import "./App.css";
-import PixelPainter from "./components/PixelPainter";
+import { image } from "framer-motion/client";
+import SpotifyEmbed from "./components/Spotify";
 
 type TimelineItem = {
   year: string;
   title: string;
   text: string;
+  image1?: string;
+  image2?: string;
 };
 
 const timeline: TimelineItem[] = [
@@ -15,9 +18,16 @@ const timeline: TimelineItem[] = [
     text: "Da hast du extrem besoffen mein Herz erobert.",
   },
   {
+    year: "5. Juli 2025",
+    title: "Altstadtfest",
+    text: "Wow dieses Kleid war echt toll ... aber du warst noch toller",
+  },
+
+  {
     year: "28. Juli 2025",
     title: "Ich hab dir geschrieben ????",
     text: "An dem Tag hab ich mir so krass in die Hosen geschissen und dir geschrieben. Hat sich gelohnt.",
+    image1: "m1.png",
   },
   {
     year: "1. August. 2025",
@@ -27,7 +37,7 @@ const timeline: TimelineItem[] = [
   {
     year: "10. August. 2025",
     title: "Seit dem sind wir zusammen",
-    text: "Das war Finkenrech. \"Ja sind wir jetzt zusammen?\"",
+    text: "Das war Finkenrech. \"Sind wir jetzt eigentlich zusammen?\"",
   },
   {
     year: "15. August. 2025",
@@ -105,6 +115,9 @@ function App() {
               <h3>{item.title}</h3>
 
               <p>{item.text}</p>
+
+              {item.image1 && <img src={item.image1} className="tilted" />}
+              {item.image2 && <img src={item.image2} className="tilted2 tilted-soft" />}
             </motion.div>
           ))}
         </div>
@@ -112,7 +125,7 @@ function App() {
 
       {/* GALLERY */}
       <section className="section">
-        <h2>Memories</h2>
+        <h2 className="h2-warum" >🩷 Wir sind schon süß 🩷</h2>
 
         <div className="gallery">
           {[1, 2, 3].map((item) => (
@@ -161,7 +174,7 @@ function App() {
           </p>
         </motion.div>
       </section>
-      <PixelPainter />
+      <SpotifyEmbed />
       {/* FOOTER */}
       <footer className="footer">
         <h2 className="h2-warum">Wir für immer ♡</h2>

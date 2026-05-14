@@ -302,6 +302,30 @@ h3 {
   transform: scale(1.02);
 }
 
+.tilted {
+  transform: scale(.45);
+}
+
+
+.tilted2 {
+
+  transform: scale(.45);
+}
+
+.tilted-soft {
+  -webkit-mask-image: radial-gradient(
+    circle,
+    black 60%,
+    transparent 100%
+  );
+
+  mask-image: radial-gradient(
+    circle,
+    black 60%,
+    transparent 100%
+  );
+}
+
 /* MOBILE */
 
 @media (max-width: 768px) {
